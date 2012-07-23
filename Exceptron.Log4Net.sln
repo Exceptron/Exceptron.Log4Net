@@ -1,11 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2BB0DB8D-6A87-4219-B26D-E1A6643E9DD1}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\packages.config = .nuget\packages.config
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exceptron.Log4Net.Tests", "Exceptron.Log4Net.Tests\Exceptron.Log4Net.Tests.csproj", "{E0A61DE0-854B-49CE-A3F4-1D9867325AE2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exceptron.Log4Net", "Exceptron.Log4Net\Exceptron.Log4Net.csproj", "{59F2DBCB-1EF9-490B-8BC7-88D3E0562803}"

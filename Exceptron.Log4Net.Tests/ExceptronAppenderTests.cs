@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Exceptron.Log4Net.Client;
+using Exceptron.Log4Net;
 using log4net;
 using log4net.Core;
 using NUnit.Framework;
@@ -13,43 +10,48 @@ namespace Exceptron.Log4Net.Tests
     [TestFixture]
     public class ExceptronAppenderTests
     {
+        private ILog logger;
+        private Exception simpleException = new Exception("Test Exception");
         [SetUp]
         public void TestAppender()
         {
-            Hierarchy hierarchy = (Hierarchy)LogManager.GetRepository();
-            Exceptron.Log4Net.Client.ExceptronAppender ea = new ExceptronAppender();
+            var hierarchy = (Hierarchy)LogManager.GetRepository();
+            var ea = new ExceptronAppender();
+            ea.UserId = "rob.chartier@gmail.com";
             ea.ApiKey = "6db93c30164443e1ab46d7eae2b41dbf";
+            ea.ThrowExceptions = true;
 
             hierarchy.Root.AddAppender(ea);
 
             hierarchy.Root.Level = Level.All;
             hierarchy.Configured = true;
 
+            logger = log4net.LogManager.GetLogger(typeof (ExceptronAppenderTests));
         }
         [Test]
         public void Info()
         {
-            log4net.LogManager.GetLogger(typeof(ExceptronAppenderTests)).Info("Info");
+            logger.Info("Info", simpleException);
         }
         [Test]
         public void Debug()
         {
-            log4net.LogManager.GetLogger(typeof(ExceptronAppenderTests)).Debug("Debug");
+            logger.Debug("Debug", simpleException);
         }
         [Test]
         public void Error()
         {
-            log4net.LogManager.GetLogger(typeof(ExceptronAppenderTests)).Error("Error");
+            logger.Error("Error", simpleException);
         }
         [Test]
         public void Fatal()
         {
-            log4net.LogManager.GetLogger(typeof(ExceptronAppenderTests)).Fatal("Fatal");
+            logger.Fatal("Fatal", simpleException);
         }
         [Test]
         public void Warn()
         {
-            log4net.LogManager.GetLogger(typeof(ExceptronAppenderTests)).Warn("Warn");
+            logger.Warn("Warn", simpleException);
         }
 
 

@@ -1,35 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Exceptron.Client;
 using Exceptron.Client.Configuration;
 using log4net.Core;
 
-namespace Exceptron.Log4Net.Client
+namespace Exceptron.Log4Net
 {
     public class ExceptronAppender : log4net.Appender.AppenderSkeleton
     {
         private ExceptionClient _exceptionClient;
 
-        public ExceptronAppender() : base()
+        protected override bool PreAppendCheck()
         {
-            var config = new ExceptronConfiguration
+            var config = new ExceptronConfiguration()
             {
                 ApiKey = ApiKey,
                 ThrowExceptions = ThrowExceptions
             };
+            _exceptionClient = new ExceptionClient(config);
+            return true;
         }
 
         /// <summary>
         /// Exceptron API Key
         /// </summary>
-        public string ApiKey { get; set; }
+        public string ApiKey { get; set;  }
 
         /// <summary>
         /// If the Appender should also throw exceptions
         /// </summary>
-        public bool ThrowExceptions { set; get; }
+        public bool ThrowExceptions { get; set; }
+
+        /// <summary>
+        /// String that identifies the active user
+        /// </summary>
+        public string UserId { get; set; }
 
         protected override void Append(log4net.Core.LoggingEvent loggingEvent)
         {
@@ -39,12 +43,12 @@ namespace Exceptron.Log4Net.Client
             try
             {
                 var exceptionData = new ExceptionData
-                {
-                    Exception = loggingEvent.ExceptionObject,
-                    Component = loggingEvent.LoggerName,
-                    Message = loggingEvent.RenderedMessage,
-                };
-
+                                        {
+                                            Exception = loggingEvent.ExceptionObject,
+                                            Component = loggingEvent.LoggerName,
+                                            Message = loggingEvent.RenderedMessage,
+                                            UserId = UserId
+                                        };
                 if (loggingEvent.Level <= Level.Info)
                 {
                     exceptionData.Severity = ExceptionSeverity.None;
