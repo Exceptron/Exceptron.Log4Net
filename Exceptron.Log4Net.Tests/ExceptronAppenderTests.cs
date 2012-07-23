@@ -13,8 +13,8 @@ namespace Exceptron.Log4Net.Tests
     public class ExceptronAppenderTests
     {
         private ILog logger;
-        [SetUp]
-        public void TestAppender()
+
+        public ExceptronAppenderTests()
         {
             var hierarchy = (Hierarchy)LogManager.GetRepository();
             var ea = new ExceptronAppender();
@@ -26,6 +26,12 @@ namespace Exceptron.Log4Net.Tests
 
             hierarchy.Root.Level = Level.All;
             hierarchy.Configured = true;
+
+        }
+
+        [SetUp]
+        public void TestAppender()
+        {
 
             logger = log4net.LogManager.GetLogger(typeof (ExceptronAppenderTests));
         }
