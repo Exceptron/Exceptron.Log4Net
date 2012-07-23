@@ -31,27 +31,62 @@ namespace Exceptron.Log4Net.Tests
         [Test]
         public void Info()
         {
-            logger.Info("Info", simpleException);
+            try
+            {
+                throw simpleException;
+            }
+            catch (Exception e)
+            {
+                logger.Info("Info", e);
+            }
         }
         [Test]
         public void Debug()
         {
-            logger.Debug("Debug", simpleException);
+            try
+            {
+                throw simpleException;
+            }
+            catch (Exception e)
+            {
+                logger.Debug("Debug", simpleException);
+            } 
         }
         [Test]
         public void Error()
         {
-            logger.Error("Error", simpleException);
+            try
+            {
+                throw simpleException;
+            }
+            catch (Exception e)
+            {
+                logger.Error("Error", simpleException);
+            } 
         }
         [Test]
         public void Fatal()
         {
-            logger.Fatal("Fatal", simpleException);
+            try
+            {
+                throw simpleException;
+            }
+            catch (Exception e)
+            {
+                logger.Fatal("Fatal", simpleException);
+            } 
         }
         [Test]
         public void Warn()
         {
-            logger.Warn("Warn", simpleException);
+            try
+            {
+                throw simpleException;
+            }
+            catch (Exception e)
+            {
+                logger.Warn("Warn", simpleException);
+            } 
         }
 
 

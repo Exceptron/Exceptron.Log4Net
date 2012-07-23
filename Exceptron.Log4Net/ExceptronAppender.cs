@@ -47,7 +47,7 @@ namespace Exceptron.Log4Net
                                             Exception = loggingEvent.ExceptionObject,
                                             Component = loggingEvent.LoggerName,
                                             Message = loggingEvent.RenderedMessage,
-                                            UserId = UserId
+                                            UserId = UserId                                            
                                         };
                 if (loggingEvent.Level <= Level.Info)
                 {
