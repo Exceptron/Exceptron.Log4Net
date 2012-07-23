@@ -70,6 +70,7 @@ namespace Exceptron.Log4Net
             }
             catch (Exception e)
             {
+                throw e;
                 //base.Append(new LoggingEvent(new LoggingEventData() { Domain= loggingEvent.Domain, ExceptionString = e.ToString(), Identity = loggingEvent.Identity, Level = Level.Error, Message = "Unable to report exception." }));
             }
         }

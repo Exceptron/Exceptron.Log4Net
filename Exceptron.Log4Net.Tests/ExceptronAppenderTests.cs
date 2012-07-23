@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using Exceptron.Log4Net;
 using log4net;
 using log4net.Core;
@@ -11,7 +13,6 @@ namespace Exceptron.Log4Net.Tests
     public class ExceptronAppenderTests
     {
         private ILog logger;
-        private Exception simpleException = new Exception("Test Exception");
         [SetUp]
         public void TestAppender()
         {
@@ -28,12 +29,18 @@ namespace Exceptron.Log4Net.Tests
 
             logger = log4net.LogManager.GetLogger(typeof (ExceptronAppenderTests));
         }
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        [DebuggerStepThrough]
+        private static void ThrowsException()
+        {
+            throw new Exception("Test Exception");
+        }
         [Test]
         public void Info()
         {
             try
             {
-                throw simpleException;
+                ThrowsException();
             }
             catch (Exception e)
             {
@@ -45,11 +52,11 @@ namespace Exceptron.Log4Net.Tests
         {
             try
             {
-                throw simpleException;
+                ThrowsException();
             }
             catch (Exception e)
             {
-                logger.Debug("Debug", simpleException);
+                logger.Debug("Debug", e);
             } 
         }
         [Test]
@@ -57,11 +64,11 @@ namespace Exceptron.Log4Net.Tests
         {
             try
             {
-                throw simpleException;
+                ThrowsException();
             }
             catch (Exception e)
             {
-                logger.Error("Error", simpleException);
+                logger.Error("Error", e);
             } 
         }
         [Test]
@@ -69,11 +76,11 @@ namespace Exceptron.Log4Net.Tests
         {
             try
             {
-                throw simpleException;
+                ThrowsException();
             }
             catch (Exception e)
             {
-                logger.Fatal("Fatal", simpleException);
+                logger.Fatal("Fatal", e);
             } 
         }
         [Test]
@@ -81,11 +88,11 @@ namespace Exceptron.Log4Net.Tests
         {
             try
             {
-                throw simpleException;
+                ThrowsException();
             }
             catch (Exception e)
             {
-                logger.Warn("Warn", simpleException);
+                logger.Warn("Warn", e);
             } 
         }
 
