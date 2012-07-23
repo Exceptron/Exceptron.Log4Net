@@ -23,7 +23,7 @@ namespace Exceptron.Log4Net
         /// <summary>
         /// Exceptron API Key
         /// </summary>
-        public string ApiKey { get; set;  }
+        public string ApiKey { get; set; }
 
         /// <summary>
         /// If the Appender should also throw exceptions
@@ -39,40 +39,32 @@ namespace Exceptron.Log4Net
         {
             if (loggingEvent == null || loggingEvent.ExceptionObject == null) return;
 
-
-            try
+            var exceptionData = new ExceptionData
+                                    {
+                                        Exception = loggingEvent.ExceptionObject,
+                                        Component = loggingEvent.LoggerName,
+                                        Message = loggingEvent.RenderedMessage,
+                                        UserId = UserId
+                                    };
+            if (loggingEvent.Level <= Level.Info)
             {
-                var exceptionData = new ExceptionData
-                                        {
-                                            Exception = loggingEvent.ExceptionObject,
-                                            Component = loggingEvent.LoggerName,
-                                            Message = loggingEvent.RenderedMessage,
-                                            UserId = UserId                                            
-                                        };
-                if (loggingEvent.Level <= Level.Info)
-                {
-                    exceptionData.Severity = ExceptionSeverity.None;
-                }
-                else if (loggingEvent.Level <= Level.Warn)
-                {
-                    exceptionData.Severity = ExceptionSeverity.Warning;
-                }
-                else if (loggingEvent.Level <= Level.Error)
-                {
-                    exceptionData.Severity = ExceptionSeverity.Error;
-                }
-                else if (loggingEvent.Level <= Level.Fatal)
-                {
-                    exceptionData.Severity = ExceptionSeverity.Fatal;
-                }
-
-                _exceptionClient.SubmitException(exceptionData);
+                exceptionData.Severity = ExceptionSeverity.None;
             }
-            catch (Exception e)
+            else if (loggingEvent.Level <= Level.Warn)
             {
-                throw e;
-                //base.Append(new LoggingEvent(new LoggingEventData() { Domain= loggingEvent.Domain, ExceptionString = e.ToString(), Identity = loggingEvent.Identity, Level = Level.Error, Message = "Unable to report exception." }));
+                exceptionData.Severity = ExceptionSeverity.Warning;
             }
+            else if (loggingEvent.Level <= Level.Error)
+            {
+                exceptionData.Severity = ExceptionSeverity.Error;
+            }
+            else if (loggingEvent.Level <= Level.Fatal)
+            {
+                exceptionData.Severity = ExceptionSeverity.Fatal;
+            }
+
+            _exceptionClient.SubmitException(exceptionData);
+
         }
     }
 }
