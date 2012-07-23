@@ -8,8 +8,8 @@
     <ProjectGuid>{59F2DBCB-1EF9-490B-8BC7-88D3E0562803}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Client</RootNamespace>
-    <AssemblyName>Client</AssemblyName>
+    <RootNamespace>Exceptron.Log4Net</RootNamespace>
+    <AssemblyName>Exceptron.Log4Net</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
