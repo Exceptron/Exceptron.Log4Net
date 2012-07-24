@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using Exceptron.Log4Net;
 using log4net;
 using log4net.Core;
 using NUnit.Framework;
@@ -18,7 +17,7 @@ namespace Exceptron.Log4Net.Tests
         {
             var hierarchy = (Hierarchy)LogManager.GetRepository();
             var ea = new ExceptronAppender();
-            ea.UserId = "rob.chartier@gmail.com";
+            ea.UserId = "testuser@exceptron.com";
             ea.ApiKey = "6db93c30164443e1ab46d7eae2b41dbf";
             ea.ThrowExceptions = true;
 

@@ -1,9 +1,17 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exceptron.Log4Net.Tests", "Exceptron.Log4Net.Tests\Exceptron.Log4Net.Tests.csproj", "{E0A61DE0-854B-49CE-A3F4-1D9867325AE2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exceptron.Log4Net", "Exceptron.Log4Net\Exceptron.Log4Net.csproj", "{59F2DBCB-1EF9-490B-8BC7-88D3E0562803}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{751D9E09-3720-44D1-A064-6E61ADE41B2C}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+		.nuget\nuget.exe = .nuget\nuget.exe
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,14 +19,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E0A61DE0-854B-49CE-A3F4-1D9867325AE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E0A61DE0-854B-49CE-A3F4-1D9867325AE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E0A61DE0-854B-49CE-A3F4-1D9867325AE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E0A61DE0-854B-49CE-A3F4-1D9867325AE2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{59F2DBCB-1EF9-490B-8BC7-88D3E0562803}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{59F2DBCB-1EF9-490B-8BC7-88D3E0562803}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59F2DBCB-1EF9-490B-8BC7-88D3E0562803}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59F2DBCB-1EF9-490B-8BC7-88D3E0562803}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0A61DE0-854B-49CE-A3F4-1D9867325AE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0A61DE0-854B-49CE-A3F4-1D9867325AE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0A61DE0-854B-49CE-A3F4-1D9867325AE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0A61DE0-854B-49CE-A3F4-1D9867325AE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Client")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Exceptron.Log4Net")]
+[assembly: AssemblyDescription("Log4Net appender for exceptron")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Client")]
-[assembly: AssemblyCopyright("Copyright ©  2012")]
+[assembly: AssemblyCompany("Exceptron Solutions Inc.")]
+[assembly: AssemblyProduct("Exceptron")]
+[assembly: AssemblyCopyright("Copyright © 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("1182c4ad-8936-47e8-b2f2-05aa1308e87b")]
+[assembly: Guid("22ee3783-c0c3-4654-9dc6-e5724ef28153")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -34,3 +34,5 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: InternalsVisibleTo("Exceptron.Log4Net.Tests")]
+[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
