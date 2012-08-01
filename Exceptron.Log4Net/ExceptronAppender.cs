@@ -7,7 +7,7 @@ namespace Exceptron.Log4Net
 {
     public class ExceptronAppender : log4net.Appender.AppenderSkeleton
     {
-        private ExceptionClient _exceptionClient;
+        private IExceptronClient _exceptronClient;
 
         protected override bool PreAppendCheck()
         {
@@ -16,7 +16,7 @@ namespace Exceptron.Log4Net
                 ApiKey = ApiKey,
                 ThrowExceptions = ThrowExceptions
             };
-            _exceptionClient = new ExceptionClient(config);
+            _exceptronClient = new ExceptronClient(config);
             return true;
         }
 
@@ -63,7 +63,7 @@ namespace Exceptron.Log4Net
                 exceptionData.Severity = ExceptionSeverity.Fatal;
             }
 
-            _exceptionClient.SubmitException(exceptionData);
+            _exceptronClient.SubmitException(exceptionData);
 
         }
     }
