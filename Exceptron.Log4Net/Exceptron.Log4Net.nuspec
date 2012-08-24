@@ -1,10 +1,9 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
-    <id>Exceptron.Log4Net</id>
-    <version>0.0.0.0</version>
-    <!--Version will be updated during build-->
-    <title>Exceptron.Log4Net</title>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$id$</title>
     <authors>Rob Chartier</authors>
     <owners>$author$</owners>
     <projectUrl>https://github.com/Exceptron/Exceptron.Log4Net</projectUrl>
