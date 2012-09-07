@@ -5,6 +5,10 @@ using log4net.Core;
 
 namespace Exceptron.Log4Net
 {
+    /// <summary>
+    /// <see cref="log4net"/> appender for exceptron. Allows you to automatically report all
+    /// exceptions logged to log4net/>
+    /// </summary>
     public class ExceptronAppender : log4net.Appender.AppenderSkeleton
     {
         private IExceptronClient _exceptronClient;
@@ -21,12 +25,12 @@ namespace Exceptron.Log4Net
         }
 
         /// <summary>
-        /// Exceptron API Key
+        /// exceptron API Key
         /// </summary>
         public string ApiKey { get; set; }
 
         /// <summary>
-        /// If the Appender should also throw exceptions
+        /// If the appender should also throw exceptions
         /// </summary>
         public bool ThrowExceptions { get; set; }
 

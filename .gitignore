@@ -6,3 +6,5 @@ obj
 TestResults
 packages
 _ReSharper*
+*.suo
+*ncrunch*
